@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="configuration.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="configuration.js"></script>
+  </head>
+  <body>
+    <div class="topnav" id="myTopnav">
+      <a href="#raptai" class="divider"><b>Rapt.Ai</b></a>
+      <a href="#Dashboard" id="Dashboard-a">Dashboard</a>
+      <a href="#Configuration" class="active" id="Configuration-a"
+        >Configuration</a
+      >
+      <a href="#User_management" id="User_management-a">User mangement</a>
+      <a href="#Projects" id="Projects-a">Projects</a>
+      <a href="#" class="Path"
+        ><img src="signout.png" height="40" width="40"
+      /></a>
+      <a href="#" class="Path1"
+        ><img src="user.png" height="43" width="43"
+      /></a>
+      <a href="javascript:void(0);" class="icon" onclick="navbar()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    <div class="Bottom-Line"></div>
+
+    <div id="Configuration">
+      <h4 class="rapt">Rapt Cluster Setup</h4>
+
+      <p class="nocluster">You haven’t made any Cluster Setup yet!!</p>
+      <button class="addcluster" id="myBtn">
+        <i class="fa fa-plus" aria-hidden="true" class="plus"></i>
+        Add New Node IP
+      </button>
+
+      <div style="overflow-x: auto;">
+      <table class="list" cellspacing="0" id="nodetable">
+        <thead>
+          <tr>
+            <th>Node Public IP</th>
+            <th>Node Host Name</th>
+            <th>Node User Name</th>
+            <th>Node Cloud Type</th>
+            <th>Node Key File/Password</th>
+            <th>Node Type</th>
+          </tr>
+        </thead>
+      </table>
+      </div>
+
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>New Cluster Setup</h2>
+          </div>
+          <div class="modal-body">
+            <form
+              autocomplete="off"
+              onsubmit="event.preventDefault();onformsubmit()"
+            >
+              <label class="label">Node Public IP</label>
+              <input
+                type="text"
+                class="input"
+                placeholder="Node Public IP"
+                id="nodeip"
+                name="nodeip"
+              /><br /><br />
+
+              <label class="label">Node Host Name</label>
+              <input
+                type="text"
+                class="input"
+                placeholder="Node Host Name"
+                id="nodehostname"
+                name="nodehostname"
+              /><br /><br />
+
+              <label class="label">Node User Name</label>
+              <input
+                type="text"
+                class="input"
+                placeholder="Node User Name"
+                id="nodeusername"
+                name="nodeusername"
+              /><br /><br />
+
+              <label class="label">Node Key File/Password</label>
+              <input
+                type="text"
+                class="input"
+                placeholder="Node Key File/Password"
+                id="nodekey"
+                name="nodekey"
+              /><br /><br />
+
+              <label for="cloudtype" class="label">Node Cloud Type</label>
+              <select id="cloudtype" name="cloudtype" size="1" class="input1">
+                <option value="node1" selected>Node Cloud Type</option>
+                <option value="node2">Node Cloud Type</option>
+                <option value="node3">Node Cloud Type</option>
+                <option value="node4">Node Cloud Type</option></select
+              ><br /><br />
+
+              <label for="nodetype" class="label">Node Type</label><br />
+              <select id="nodetype" name="nodetype" size="1" class="input1">
+                <option value="node1" selected>Node Type</option>
+                <option value="node2">Node Type</option>
+                <option value="node3">Node Type</option>
+                <option value="node4">Node Type</option>
+              </select>
+              <div class="modal-footer">
+                <a href="#" id="cancelModal">Cancel</a>
+                <button type="submit" id="Add" value="submit">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div id="snackbar">You have setup the cluster successfully</div>
+
+      <!-- Delete Modal -->
+      <div id="DeleteConfirm" class="deletemodal">
+        <div class="deletemodal-content">
+          <div class="deletemodal-header">Are You sure you want to delete this Setup?</div>
+          <div class="deletemodal-footer">
+			  <button type="button" id="CancelDeleteModal">Cancel</button>
+			  <button type="button" id="Yes">Yes</button>
+		  </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
